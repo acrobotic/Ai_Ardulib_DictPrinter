@@ -16,18 +16,19 @@ class DictPrinter {
         DictPrinter();
         void start();
         void stop();
-        void addEmptyItem(char *key);
-        void addCharItem(char *key, char value);
-        void addStrItem(char *key, char *value);
-        void addFltItem(char *key, float value);
-        void addDblItem(char *key, double value);
-        void addIntItem(char *key, int value);
-        void addLongItem(char *key, long value);
-        void addLongTuple(char *key, uint8_t num, ...);
+        void addEmptyItem(const __FlashStringHelper* key);
+        void addCharItem(const __FlashStringHelper* key, char value);
+        void addStrItem(const __FlashStringHelper* key, char *value);
+        void addStrItem(const __FlashStringHelper* key, const __FlashStringHelper *value);
+        void addFltItem(const __FlashStringHelper* key, float value);
+        void addDblItem(const __FlashStringHelper* key, double value);
+        void addIntItem(const __FlashStringHelper* key, int value);
+        void addLongItem(const __FlashStringHelper* key, long value);
+        void addLongTuple(const __FlashStringHelper* key, uint8_t num, ...);
         int len();
     private:
         char *output;
         int numberOfItems;
-        void addKey(char *key);
+        void addKey(const __FlashStringHelper* key);
 };
 #endif

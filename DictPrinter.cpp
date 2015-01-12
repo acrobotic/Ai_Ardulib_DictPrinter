@@ -14,32 +14,37 @@ void DictPrinter::stop() {
     numberOfItems = 0;
 }
 
-void DictPrinter::addEmptyItem(char *key) {
+void DictPrinter::addEmptyItem(const __FlashStringHelper* key) {
     addKey(key);
     Serial << "\"" << "\"";
 }
 
-void DictPrinter::addCharItem(char *key, char value) {
+void DictPrinter::addCharItem(const __FlashStringHelper* key, char value) {
     addKey(key);
     Serial << "\"" << value << "\"";
 }
 
-void DictPrinter::addIntItem(char *key, int value) {
+void DictPrinter::addIntItem(const __FlashStringHelper* key, int value) {
     addKey(key);
     Serial <<  _DEC(value);
 }
 
-void DictPrinter::addLongItem(char *key, long value) {
+void DictPrinter::addLongItem(const __FlashStringHelper* key, long value) {
     addKey(key);
     Serial << _DEC(value); 
 }
 
-void DictPrinter::addStrItem(char *key, char *value) {
+void DictPrinter::addStrItem(const __FlashStringHelper* key, char *value) {
     addKey(key);
     Serial << "\"" << value << "\"";
 }
 
-void DictPrinter::addDblItem(char *key, double value) {
+void DictPrinter::addStrItem(const __FlashStringHelper* key, const __FlashStringHelper *value) {
+    addKey(key);
+    Serial << "\"" << value << "\"";
+}
+
+void DictPrinter::addDblItem(const __FlashStringHelper* key, double value) {
     char valueStr[DP_STR_LEN];
     addKey(key);
     //dtostre(value,valueStr,DP_DOUBLE_PREC,0);
@@ -47,7 +52,7 @@ void DictPrinter::addDblItem(char *key, double value) {
     Serial <<  valueStr; 
 }
 
-void DictPrinter::addFltItem(char *key, float value) {
+void DictPrinter::addFltItem(const __FlashStringHelper* key, float value) {
     char valueStr[DP_STR_LEN];
     addKey(key);
     //dtostre((double)value, valueStr, DP_DOUBLE_PREC,0);
@@ -55,7 +60,7 @@ void DictPrinter::addFltItem(char *key, float value) {
     Serial <<  valueStr; 
 }
 
-void DictPrinter::addLongTuple(char *key, uint8_t num, ...) {
+void DictPrinter::addLongTuple(const __FlashStringHelper* key, uint8_t num, ...) {
     va_list args; 
     long value;
     addKey(key);
@@ -75,7 +80,7 @@ int DictPrinter::len() {
     return numberOfItems;
 }
 
-void DictPrinter::addKey(char *key) {
+void DictPrinter::addKey(const __FlashStringHelper* key) {
     if (numberOfItems > 0) {
         Serial << ",";
     }
