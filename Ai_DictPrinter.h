@@ -1,5 +1,5 @@
-#ifndef DICTPRINTER_H
-#define DICTPRINTER_H
+#ifndef AI_DICTPRINTER_H
+#define AI_DICTPRINTER_H
 #if defined(ARDUINO) && ARDUINO >= 100
 #include <Arduino.h>
 #else

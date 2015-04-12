@@ -1,4 +1,4 @@
-#include "DictPrinter.h"
+#include "Ai_DictPrinter.h"
 
 DictPrinter dprint = DictPrinter();
 
@@ -8,12 +8,12 @@ void setup() {
 
 void loop() {
     dprint.start();
-    dprint.addCharItem("char", 100); 
-    dprint.addIntItem("value", 100); 
-    dprint.addStrItem("name", "bob");
-    dprint.addLongItem("long", 45000);
-    dprint.addDblItem("double", 103.2345);
-    dprint.addFltItem("float", 12.34567);
+    dprint.addCharItem(F("char"), 100); 
+    dprint.addIntItem(F("value"), 100); 
+    dprint.addStrItem(F("name"), "bob");
+    dprint.addLongItem(F("long"), 45000);
+    dprint.addDblItem(F("double"), 103.2345);
+    dprint.addFltItem(F("float"), 12.34567);
     dprint.stop();
     Serial.println();
     delay(100);

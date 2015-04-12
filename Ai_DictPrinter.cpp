@@ -1,4 +1,4 @@
-#include "DictPrinter.h"
+#include "Ai_DictPrinter.h"
 
 DictPrinter::DictPrinter() {
     numberOfItems = 0;
